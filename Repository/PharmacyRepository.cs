@@ -5,27 +5,27 @@ namespace Pharmacy_API_nuvem.Repository
 {
     public class PharmacyRepository
     {
-        private readonly PharmacyDbContext _dbContext;
+        private readonly PharmacyDbContext _context;
 
-        public PharmacyRepository(PharmacyDbContext dbContext)
+        public PharmacyRepository(PharmacyDbContext context)
         {
-            _dbContext = dbContext;
+            _context = context;
         }
 
-        public Pharmacy GetPharmacyById(int id)
+        public Pharmacy GetById(int id)
         {
-            return _dbContext.Pharmacies.Find(id);
+            return _context.Pharmacies.Find(id);
         }
 
-        public List<Pharmacy> GetAllPharmacies()
+        public IEnumerable<Pharmacy> GetAll()
         {
-            return _dbContext.Pharmacies.ToList();
+            return _context.Pharmacies.ToList();
         }
 
-        public void UpdatePharmacy(Pharmacy pharmacy)
+        public void Update(Pharmacy pharmacy)
         {
-            _dbContext.Pharmacies.Update(pharmacy);
-            _dbContext.SaveChanges();
+            _context.Pharmacies.Update(pharmacy);
+            _context.SaveChanges();
         }
     }
 }

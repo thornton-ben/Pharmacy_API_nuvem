@@ -12,19 +12,19 @@ namespace Pharmacy_API_nuvem.Services
             _repository = repository;
         }
 
-        public Pharmacy GetPharmacyById(int id)
+        public Pharmacy GetById(int id)
         {
-            return _repository.GetPharmacyById(id);
+            return _repository.GetById(id);
         }
 
-        public List<Pharmacy> GetAllPharmacies()
+        public IEnumerable<Pharmacy> GetAll()
         {
-            return _repository.GetAllPharmacies();
+            return _repository.GetAll();
         }
 
-        public void UpdatePharmacy(Pharmacy pharmacy)
+        public void Update(Pharmacy pharmacy)
         {
-            _repository.UpdatePharmacy(pharmacy);
+            _repository.Update(pharmacy);
         }
     }
 }

@@ -4,46 +4,44 @@ using Pharmacy_API_nuvem.Services;
 
 namespace Pharmacy_API_nuvem.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class PharmacyController : ControllerBase
     {
-        private readonly PharmacyService _pharmacyService;
+        private readonly PharmacyService _service;
 
-        public PharmacyController(PharmacyService pharmacyService)
+        public PharmacyController(PharmacyService service)
         {
-            _pharmacyService = pharmacyService;
+            _service = service;
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetPharmacyById(int id)
+        public IActionResult GetById(int id)
         {
-            var pharmacy = _pharmacyService.GetPharmacyById(id);
+            var pharmacy = _service.GetById(id);
             if (pharmacy == null)
+            {
                 return NotFound();
-
+            }
             return Ok(pharmacy);
         }
 
         [HttpGet]
-        public IActionResult GetAllPharmacies()
+        public IActionResult GetAll()
         {
-            var pharmacies = _pharmacyService.GetAllPharmacies();
+            var pharmacies = _service.GetAll();
             return Ok(pharmacies);
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdatePharmacy(int id, [FromBody] Pharmacy updatedPharmacy)
+        public IActionResult Update(int id, Pharmacy pharmacy)
         {
-            var existingPharmacy = _pharmacyService.GetPharmacyById(id);
-            if (existingPharmacy == null)
-                return NotFound();
+            if (id != pharmacy.Id)
+            {
+                return BadRequest();
+            }
 
-            existingPharmacy.Name = updatedPharmacy.Name;
-            // Update other properties...
-
-            _pharmacyService.UpdatePharmacy(existingPharmacy);
-
+            _service.Update(pharmacy);
             return NoContent();
         }
     }
