@@ -3350,11 +3350,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benja\\source\\repos\\Pharmacy_API_nuvem\\Pharmacy_API_nuvem.csproj",
+      "projectUniqueName": "C:\\Users\\benja\\repos\\Pharmacy_API_nuvem\\Pharmacy_API_nuvem.csproj",
       "projectName": "Pharmacy_API_nuvem",
-      "projectPath": "C:\\Users\\benja\\source\\repos\\Pharmacy_API_nuvem\\Pharmacy_API_nuvem.csproj",
+      "projectPath": "C:\\Users\\benja\\repos\\Pharmacy_API_nuvem\\Pharmacy_API_nuvem.csproj",
       "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benja\\source\\repos\\Pharmacy_API_nuvem\\obj\\",
+      "outputPath": "C:\\Users\\benja\\repos\\Pharmacy_API_nuvem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
